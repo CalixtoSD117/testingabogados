@@ -50,8 +50,8 @@ const handler = nextConnect()
 export default handler;
 
 // Export the config separately
-export const config = {
-  api: {
-    bodyParser: false, // Disallow body parsing, multer will handle it
-  },
-};
+// export const config = {
+//   api: {
+//     bodyParser: false, // Disallow body parsing, multer will handle it
+//   },
+// };
