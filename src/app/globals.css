@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=Tiro+Bangla&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.titlee{
+  font-family: 'Tiro Bangla', serif;
+}
+
+.ediscroll::-webkit-scrollbar {
+  width: 5px;               /* width of the entire scrollbar */
+}
+
+.ediscroll::-webkit-scrollbar-track {
+  background: transparent;        /* color of the tracking area */
+}
+
+.ediscroll::-webkit-scrollbar-thumb {
+  background-color: #797979;    /* color of the scroll thumb */
+  border-radius: 20px;       /* roundness of the scroll thumb */
+  border: 3px ;  /* creates padding around scroll thumb */
+}
+body {
+  background-color: #F8F9FA;
+}
+
+/* .dropdownporfile::before{
+  content: '';
+  position: absolute;
+  top: -0.5rem;
+  right: 9rem;
+  width: 14px;
+  height: 14px;
+  transform: rotate(45deg);
+  background-color: white;
+  border-left: 0.1px solid #2D0002;
+  border-top: 0.1px solid #2D0002;
+} */
+
+.animate__animated.animate__fadeIn {
+  --animate-duration: 0.3s;
+}
+
+
+/* Stepper */
+

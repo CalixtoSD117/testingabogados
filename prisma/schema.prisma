@@ -1,0 +1,90 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model clientes{
+  id Int @id @default(autoincrement())
+  nombre String @db.VarChar(50)
+  razon_social String @db.VarChar(50)
+  direccion String @db.VarChar(50)
+  rfc String @db.VarChar(13)
+  correo String @db.VarChar(50)
+  alias String @db.VarChar(50)
+  telefono String @db.VarChar(10)
+  celular String @db.VarChar(10)
+  despacho Int 
+}
+
+model casos {
+  id          Int      @id @default(autoincrement())  // Assuming id is the primary key
+  juzgado     String?  @db.VarChar(50)
+  expediente  String?  @db.VarChar(50)
+  cliente     Int?     @db.Int
+  contrario   String?  @db.VarChar(50)
+  asunto      String?  @db.VarChar(50)
+  secretario  String?  @db.VarChar(50)
+  postulatoria String? @db.VarChar(50)
+  probatoria  String?  @db.VarChar(50)
+  resolutoria String?  @db.VarChar(50)
+  recurso     String?  @db.VarChar(50)
+  amparo      String?  @db.VarChar(50)
+  aud_const   String?  @db.VarChar(50)
+  revision    String?  @db.VarChar(50)
+  pdf         String?  @db.VarChar(255)
+  tipo_caso   String?  @db.VarChar(50)
+  despacho    Int?     @db.Int
+  abogado     Int?     @db.Int
+
+  @@map("casos") // Maps the model to the 'casos' table in the database
+}
+
+
+model infofirma {
+  id              Int     @id @default(autoincrement())  // Assuming id is the primary key
+  rfc             String? @db.VarChar(13)
+  nombreDespacho  String? @db.VarChar(50)
+  razonSocial     String? @db.VarChar(50)
+  pais            String? @db.VarChar(50)
+  direccion       String? @db.VarChar(50)
+  telefono        String? @db.VarChar(12)
+  descripcion     String? @db.VarChar(256)
+
+  @@map("info_firma") // Maps the model to the 'info_firma' table in the database
+}
+
+
+model pendientes {
+  id          Int      @id @default(autoincrement())
+  cliente     String?  @db.VarChar(50)
+  titulo      String?  @db.VarChar(50)
+  fecha       DateTime?  // Prisma uses DateTime for date types
+  description String?  @db.VarChar(100)
+  caso        Int?     @db.Int
+  despacho    Int?     @db.Int
+
+  @@map("pendientes")
+}
+
+
+model users {
+  id          Int     @id @default(autoincrement())
+  nombre      String? @db.VarChar(50)
+  telefono    String? @db.VarChar(10)
+  correo      String? @db.VarChar(255)
+  contrasena  String? @db.VarChar(255)  // Note: Consider storing hashed passwords
+  rol         String? @db.VarChar(50)
+  cargo       String? @db.VarChar(50)
+  despacho    Int?    @db.Int
+
+  @@map("users")
+}
+
+
